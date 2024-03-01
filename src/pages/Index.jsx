@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Button, Center, Container, Input, Text, VStack, useToast } from "@chakra-ui/react";
 
 const Index = () => {
@@ -54,11 +54,17 @@ const Index = () => {
     }
   };
 
+  useEffect(() => {
+    if (/^[0-9A-Fa-f]{6}$/.test(color)) {
+      fetchColorName();
+    }
+  }, [color]);
+
   return (
     <Container>
       <Center py={10}>
         <VStack spacing={4}>
-          <Input placeholder="Enter hex color code (e.g., 1a1c2c)" value={color} onChange={handleColorChange} maxLength={6} isRequired isInvalid={!/^[0-9A-Fa-f]{6}$/.test(color) && color.length === 6} />
+          <Input placeholder="Enter hex color code (e.g., 1a1c2c)" value={color} onChange={handleColorChange} maxLength={6} />
           <Button onClick={fetchColorName} isLoading={isLoading} loadingText="Translating" colorScheme="blue">
             Translate Hex
           </Button>
