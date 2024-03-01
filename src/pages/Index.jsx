@@ -61,10 +61,13 @@ const Index = () => {
   }, [color]);
 
   return (
-    <Container>
+    <Container maxW="container.md">
       <Center py={10}>
         <VStack spacing={4}>
-          <Input placeholder="Enter hex color code (e.g., 1a1c2c)" value={color} onChange={handleColorChange} maxLength={6} />
+          <Text fontSize="xl" mb={6}>
+            Enter a hex color code below to get its name. The app will automatically fetch the color name as you type a valid hex code.
+          </Text>
+          <Input placeholder="Enter hex color code (e.g., 1a1c2c)" value={color} onChange={handleColorChange} maxLength={6} size="lg" width="full" />
           <Button onClick={fetchColorName} isLoading={isLoading} loadingText="Translating" colorScheme="blue">
             Translate Hex
           </Button>
