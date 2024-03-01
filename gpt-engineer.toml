@@ -1,0 +1,5 @@
+[gptengineer-app]
+project_id = "0378c3d5-0c08-446f-a1ee-e309d52261eb"
+
+[[gptengineer-app.openapi]]
+url = "https://raw.githubusercontent.com/APIs-guru/openapi-directory/main/APIs/color.pizza/1.0.0/openapi.yaml"
